@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Catatan</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description" content="Aplikasi pencatatan sederhana untuk menyimpan dan mengelola catatan Anda">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Langsung ke konten</a>
+    
+    <div class="container">
+        <header class="app-header">
+            <h1 class="header-title">📝 Aplikasi Catatan</h1>
+            <div class="search-container">
+                <div class="search-icon">🔍</div>
+                <input type="text" id="search-input" class="search-input" placeholder="Cari catatan..." aria-label="Cari catatan">
+            </div>
+        </header>
+        
+        <main id="main-content">
+            <section class="note-form-container" aria-labelledby="form-heading">
+                <div class="form-container">
+                    <h2 id="form-heading" class="form-title">✍️ Buat Catatan Baru</h2>
+                    <form id="note-form" aria-labelledby="form-heading">
+                        <div class="form-group">
+                            <label class="form-label" for="title-input">Judul Catatan</label>
+                            <input 
+                                type="text" 
+                                id="title-input" 
+                                class="form-input" 
+                                placeholder="Masukkan judul catatan..." 
+                                required
+                                maxlength="50"
+                                aria-describedby="title-validation char-counter"
+                            >
+                            <div id="char-counter" class="char-counter normal" aria-live="polite">Sisa karakter: 50</div>
+                            <div id="title-validation" class="validation-message" aria-live="assertive"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="body-input">Isi Catatan</label>
+                            <textarea 
+                                id="body-input" 
+                                class="form-textarea" 
+                                placeholder="Tulis catatan Anda di sini..." 
+                                required
+                                aria-describedby="body-validation"
+                            ></textarea>
+                            <div id="body-validation" class="validation-message" aria-live="assertive"></div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Tambah Catatan</button>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="notes-section" aria-labelledby="active-notes-heading">
+                <h2 id="active-notes-heading">📝 Catatan Aktif</h2>
+                <div id="active-notes" class="notes-grid">
+                    <!-- Active notes will be rendered here -->
+                </div>
+            </section>
+            
+            <section class="notes-section" aria-labelledby="archived-notes-heading">
+                <h2 id="archived-notes-heading">📦 Arsip</h2>
+                <div id="archived-notes" class="notes-grid">
+                    <!-- Archived notes will be rendered here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
